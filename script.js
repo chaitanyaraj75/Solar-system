@@ -122,9 +122,30 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
-
-function proloadResources(){
+function preloadResources() {
   const textureLoader = new THREE.TextureLoader();
-  const textures = planetsData.map(data => textureLoader.load('textures/' + data.name + '.jpg'));
-  return Promise.all(textures);
+
+  // Wrap each load call in a Promise
+  const texturePromises = planetsData.map(data => {
+    return new Promise((resolve, reject) => {
+      textureLoader.load(
+        'textures/' + data.name + '.jpg',
+        texture => resolve(texture),
+        undefined,
+        err => reject(err)
+      );
+    });
+  });
+
+  Promise.all(texturePromises)
+    .then(textures => {
+      planetsData.forEach((data, index) => {
+        data.texture = textures[index];
+      });
+      const element=document.getElementById("loader");
+      element.style.display = "none";
+      element.style.backgroundColor = "transparent";
+    })
 }
+preloadResources();
+
