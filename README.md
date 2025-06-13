@@ -14,7 +14,7 @@ A web-based project visualizing the solar system, built for educational and inte
 
 - HTML5, CSS3, JavaScript, Three.js
 
-##Live Demo
+## Live Demo
 
 https://chaitanyaraj75.github.io/Solar-system/
 
