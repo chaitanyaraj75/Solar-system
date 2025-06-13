@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at center, #000000 0%, #0d0d0d 100%);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Scene styling */
+
+#scene-container {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+/* Planet speed control styling */
+
+#controls {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+
+/* Pause button styling */
+
+#togglePause {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  padding: 5px 10px;
+  z-index: 1;
+  border: none;
+  border-radius: 5px;
+  background-color: #3ed96f;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#togglePause:hover {
+  background-color: #2ecc71;
+}
+
+input[type="range"] {
+  width: 100px;
+}
